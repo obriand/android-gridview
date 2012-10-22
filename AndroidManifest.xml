@@ -23,7 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FullImageActivity"></activity>
+        <activity 
+            android:name=".DynUILGridActivity" 
+            android:label="@string/title_activity_dyn">
+        </activity>
+        <activity 
+            android:name=".StaticImgGridActivity" 
+            android:label="@string/title_activity_static">            
+        </activity>
+        <activity 
+            android:name=".FullImageActivity" 
+            android:label="@string/title_activity_full_img">            
+        </activity>
     </application>
 
 </manifest>

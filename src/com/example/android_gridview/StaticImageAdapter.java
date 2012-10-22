@@ -7,23 +7,23 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
  
-public class ImageAdapter extends BaseAdapter {
+public class StaticImageAdapter extends BaseAdapter {
     private Context mContext;
  
     // Keep all Images in array
     public Integer[] mThumbIds = {
-            R.drawable.ic_action_search, R.drawable.ic_launcher,
-            R.drawable.ic_action_search, R.drawable.ic_launcher,
-            R.drawable.ic_action_search, R.drawable.ic_launcher,
-            R.drawable.ic_action_search, R.drawable.ic_launcher,
-            R.drawable.ic_action_search, R.drawable.ic_launcher,
-            R.drawable.ic_action_search, R.drawable.ic_launcher,
-            R.drawable.ic_action_search, R.drawable.ic_launcher,
-            R.drawable.ic_action_search
+            android.R.drawable.ic_menu_gallery, android.R.drawable.ic_menu_gallery,
+            android.R.drawable.ic_menu_gallery, android.R.drawable.ic_menu_gallery,
+            android.R.drawable.ic_menu_gallery, android.R.drawable.ic_menu_gallery,
+            android.R.drawable.ic_menu_gallery, android.R.drawable.ic_menu_gallery,
+            android.R.drawable.ic_menu_gallery, android.R.drawable.ic_menu_gallery,
+            android.R.drawable.ic_menu_gallery, android.R.drawable.ic_menu_gallery,
+            android.R.drawable.ic_menu_gallery, android.R.drawable.ic_menu_gallery,
+            android.R.drawable.ic_menu_gallery
     };
  
     // Constructor
-    public ImageAdapter(Context c){
+    public StaticImageAdapter(Context c){
         mContext = c;
     }
  

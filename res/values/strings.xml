@@ -4,5 +4,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">android-gridview</string>
+    <string name="displayStaticImgActivity">displayStaticImgActivity</string>
+    <string name="displayDynImgActivity">displayDynImgActivity</string>
+    <string name="title_activity_static">Static Image Grid Activity</string>
+    <string name="title_activity_dyn">Dynamic Image Grid Activity</string>
+    <string name="title_activity_full_img">Full Image Activity</string>
 
 </resources>

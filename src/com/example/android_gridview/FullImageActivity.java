@@ -17,7 +17,7 @@ public class FullImageActivity extends Activity {
  
         // Selected image id
         int position = i.getExtras().getInt("id");
-        ImageAdapter imageAdapter = new ImageAdapter(this);
+        StaticImageAdapter imageAdapter = new StaticImageAdapter(this);
  
         ImageView imageView = (ImageView) findViewById(R.id.full_image_view);
         imageView.setImageResource(imageAdapter.mThumbIds[position]);

@@ -6,8 +6,10 @@
     <string name="title_activity_main">android-gridview</string>
     <string name="displayStaticImgActivity">displayStaticImgActivity</string>
     <string name="displayDynImgActivity">displayDynImgActivity</string>
+    <string name="displayDynCustoImgActivity">displayDynCustoImgActivity</string>
     <string name="title_activity_static">Static Image Grid Activity</string>
     <string name="title_activity_dyn">Dynamic Image Grid Activity</string>
+    <string name="title_activity_dyn_custo">Custo Dynamic Image Grid Activity</string>
     <string name="title_activity_full_img">Full Image Activity</string>
 
 </resources>

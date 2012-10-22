@@ -19,10 +19,17 @@ public class MainActivity extends Activity {
     	startActivity(intent);
     }
     
-    // Button static image activity
+    // Button dyn image activity
     public void displayDynImgActivity(View view) {  
     	Intent intent = new Intent(MainActivity.this, DynUILGridActivity.class);
     	startActivity(intent);
     }
+    
+    // Button dyn custo image activity
+    public void displayDynCustoImgActivity(View view) {  
+    	Intent intent = new Intent(MainActivity.this, DynCustoGridActivity.class);
+    	startActivity(intent);
+    }
+
 
 }

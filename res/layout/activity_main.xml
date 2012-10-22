@@ -28,4 +28,13 @@
         android:onClick="displayDynImgActivity"
         android:text="@string/displayDynImgActivity" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        android:onClick="displayDynCustoImgActivity"
+        android:text="@string/displayDynCustoImgActivity" />
+
 </LinearLayout>

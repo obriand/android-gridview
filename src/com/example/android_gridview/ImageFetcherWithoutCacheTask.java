@@ -41,7 +41,10 @@ public class ImageFetcherWithoutCacheTask extends AsyncTask<String, Void, Bitmap
 	private Bitmap fetchImage(String url) {
 		Bitmap bitmap = null;
 		try {
-			bitmap = BitmapFactory.decodeStream((InputStream) new URL(url).getContent());
+			final BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inSampleSize = 2; // image size divided by 2
+			options.inJustDecodeBounds = false;
+			bitmap = BitmapFactory.decodeStream((InputStream) new URL(url).getContent(), null, options); 
 			return bitmap;
 		} catch (Exception e) {
 			e.printStackTrace();

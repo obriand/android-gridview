@@ -9,11 +9,11 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
-public class ImageFetcherWithoutCacheTask extends AsyncTask<String, Void, Bitmap> {
+public class ImageFetcherTask extends AsyncTask<String, Void, Bitmap> {
 
     private final WeakReference<ImageView> imageViewReference;
 
-    public ImageFetcherWithoutCacheTask(ImageView imageView) {
+    public ImageFetcherTask(ImageView imageView) {
         imageViewReference = new WeakReference<ImageView>(imageView);
     }
 

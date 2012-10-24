@@ -29,7 +29,7 @@ public class DynUILGridActivity extends Activity {
         mImageUrls.add("http://static2.dmcdn.net/static/video/501/543/28345105:jpeg_preview_large.jpg?20120507124341");
         mImageUrls.add("http://static2.dmcdn.net/static/video/001/543/28345100:jpeg_preview_large.jpg?20120507124341");
         mImageUrls.add("http://static2.dmcdn.net/static/video/970/543/28345079:jpeg_preview_large.jpg?20120507124341");
-        mImageUrls.add("http://sstatic2.dmcdn.net/static/video/170/543/28345071:jpeg_preview_large.jpg?20120507124341");
+        mImageUrls.add("http://static2.dmcdn.net/static/video/170/543/28345071:jpeg_preview_large.jpg?20120507124341");
         
         mImageLoader.init(ImageLoaderConfiguration.createDefault(this));
         

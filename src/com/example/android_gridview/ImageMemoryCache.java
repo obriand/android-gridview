@@ -16,7 +16,7 @@ public class ImageMemoryCache {
 	
 	private Context mContext;
 	
-	private HashMap mCacheData;
+	private HashMap<String, Bitmap> mCacheData;
 	
 	private ImageMemoryCache(Context c) {
 		mContext = c;
@@ -32,26 +32,26 @@ public class ImageMemoryCache {
 	public static ImageMemoryCache getInstance() {
 		if (sInstance == null) {
 			throw new IllegalStateException(
-					"ImageCache should be initialized before being accessed");
+					"ImageMemoryCache should be initialized before being accessed");
 		}
 		return sInstance;
 	}
 	
 	public boolean containsImage(String url) {
 		boolean contain = mCacheData.containsKey(url);
-		Log.d("containsImage", String.valueOf(contain));
+		//Log.d("ImageMemoryCache:containsImage", String.valueOf(contain));
 		return contain;		
 	}
 	
 	public void addImageToCache(String url, Bitmap bitmap) {
 		mCacheData.put(url, bitmap);
-		Log.d("addImageToCache", url);
+		//Log.d("ImageMemoryCache:addImageToCache", url);
 	}
 
-	public Bitmap getImageFromDiskCache(String url) {
+	public Bitmap getImageFromCache(String url) {
 		Bitmap bm = null;
 		bm = (Bitmap) mCacheData.get(url);
-		Log.d("getImageFromDiskCache", url);
+		//Log.d("ImageMemoryCache:getImageFromCache", url);
         return bm;
 	}
 	

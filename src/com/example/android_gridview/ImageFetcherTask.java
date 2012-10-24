@@ -6,7 +6,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -28,14 +27,11 @@ public class ImageFetcherTask extends AsyncTask<String, Void, HashMap<Integer, O
     	mImageSampleSize = is;
     	mImageMemoryCache = ImageMemoryCache.getInstance();
     	mImageDiskCache = ImageDiskCache.getInstance();
-    	
-        Log.d("MainActivity:onCreate", "ImageMemoryCache:getInstance");
-        Log.d("MainActivity:onCreate", "ImageDiskCache:getInstance");
     }
 
     @Override
     protected HashMap<Integer, Object> doInBackground(String... url) {
-		// Pass the url to download the image
+		// Pass the url to fetch the image
     	HashMap<Integer, Object> hm = fetchImage(url[0]);
 		return hm;
     }
@@ -54,7 +50,7 @@ public class ImageFetcherTask extends AsyncTask<String, Void, HashMap<Integer, O
                 String url = (String) hm.get(0);
                 // Store the image to the cache
 				if (bitmap != null) {
-					//mImageMemoryCache.addImageToCache(url, bitmap);
+					mImageMemoryCache.addImageToCache(url, bitmap); 
 					mImageDiskCache.addImageToCache(url, bitmap);
 				}
             }
@@ -62,14 +58,15 @@ public class ImageFetcherTask extends AsyncTask<String, Void, HashMap<Integer, O
     }
     
 	private HashMap<Integer, Object> fetchImage(String url) {
-		Bitmap bitmap = null; 
+		Bitmap bitmap = null;  
 		try {
 			// Try from the cache
-			//if (mImageMemoryCache.containsImage(url)) {
-			if (mImageDiskCache.containsImage(url)) {
-				//bitmap = mImageMemoryCache.getImageFromDiskCache(url);
-				bitmap = mImageDiskCache.getImageFromDiskCache(url);
-				Log.d("fetchImage", "from cache");
+			if (mImageMemoryCache.containsImage(url)) {
+				bitmap = mImageMemoryCache.getImageFromCache(url);
+				Log.d("fetchImage", "from memory cache");
+			} else if (mImageDiskCache.containsImage(url)) {
+				bitmap = mImageDiskCache.getImageFromCache(url);
+				Log.d("fetchImage", "from disk cache");
 			} else {
 			// From the network
 				final BitmapFactory.Options options = new BitmapFactory.Options();

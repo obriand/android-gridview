@@ -3,6 +3,9 @@ package com.example.android_gridview;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 
 import android.content.Context;
@@ -43,31 +46,43 @@ public class ImageDiskCache {
 	}
 	
 	public boolean containsImage(String url) {
-		// TODO Verify if image is in disk cache using url key
+		// Verify if image is in disk cache using url key
 		boolean contain = false;
-		Log.d("containsImage", String.valueOf(contain));
+		String fileFromUrl = String.valueOf(url.hashCode());
+		File searchFile = new File(mCacheDir.getAbsolutePath(), fileFromUrl);
+        if (searchFile.exists()) contain = true;
+		//Log.d("ImageDiskCache:containsImage-", String.valueOf(contain) + ":" + fileFromUrl);
 		return contain;
 	}
 	
 	public void addImageToCache(String url, Bitmap bitmap) {
-		// TODO store image bitmap file on the disk using the url as a key
+		// store image bitmap file on the disk using the url as a key
+		String fileFromUrl = String.valueOf(url.hashCode());
 		FileOutputStream out = null;
 		try {
-			out = new FileOutputStream(new File(mCacheDir.getAbsolutePath(), String.valueOf(url.hashCode())));
+			out = new FileOutputStream(new File(mCacheDir.getAbsolutePath(), fileFromUrl));
+			bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+			out.flush();
+			out.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		Log.d("addImageToCache", url);
+		//Log.d("ImageDiskCache:addImageToCache", url);
 	}
 
-	public Bitmap getImageFromDiskCache(String url) {
-		// TODO get the image bitmap file from the disk using the url as a key
+	public Bitmap getImageFromCache(String url) {
+		// get the image bitmap file from the disk using the url as a key
+		String fileFromUrl = String.valueOf(url.hashCode());
 		Bitmap bm = null;
-        String filename=String.valueOf(url.hashCode());
-        File f = new File(mCacheDir, filename);
-        bm = BitmapFactory.decodeFile(f.getAbsolutePath());
-		Log.d("getImageFromDiskCache", url);
+		String resp = "";
+		File getFile = new File(mCacheDir.getAbsolutePath(), fileFromUrl);
+        bm = BitmapFactory.decodeFile(getFile.getAbsolutePath());
+        if (bm==null) resp = "no file";
+        //Log.d("ImageDiskCache:getImageFromCache", resp + "[" + getFile.getAbsolutePath() + "]" + " " + url);
         return bm;
 	}
 	

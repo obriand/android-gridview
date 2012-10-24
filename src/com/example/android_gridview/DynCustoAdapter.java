@@ -17,11 +17,11 @@ import android.widget.ImageView;
 
 public class DynCustoAdapter extends BaseAdapter {
 
-	private Context mContext;
+	private Context mContext; 
 	private LayoutInflater mInflater;
 	private ArrayList<String> mImages = new ArrayList<String>();
 
-	public DynCustoAdapter(Context c, ArrayList<String> l) {
+	public DynCustoAdapter(Context c, ArrayList<String> l) { 
 		mContext = c;
 		mInflater = LayoutInflater.from(mContext);
 		mImages = l;

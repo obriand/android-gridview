@@ -63,10 +63,10 @@ public class ImageFetcherTask extends AsyncTask<String, Void, HashMap<Integer, O
 			// Try from the cache
 			if (mImageMemoryCache.containsImage(url)) {
 				bitmap = mImageMemoryCache.getImageFromCache(url);
-				Log.d("fetchImage", "from memory cache");
+				//Log.d("fetchImage", "from memory cache");
 			} else if (mImageDiskCache.containsImage(url)) {
 				bitmap = mImageDiskCache.getImageFromCache(url);
-				Log.d("fetchImage", "from disk cache");
+				//Log.d("fetchImage", "from disk cache");
 			} else {
 			// From the network
 				final BitmapFactory.Options options = new BitmapFactory.Options();
@@ -77,7 +77,7 @@ public class ImageFetcherTask extends AsyncTask<String, Void, HashMap<Integer, O
 				connection.connect();
 				InputStream input = connection.getInputStream(); 
 				bitmap = BitmapFactory.decodeStream(input, null, options);	
-				Log.d("fetchImage", "from web");
+				//Log.d("fetchImage", "from web");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

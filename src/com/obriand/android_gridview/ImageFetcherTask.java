@@ -1,4 +1,4 @@
-package com.example.android_gridview;
+package com.obriand.android_gridview;
 
 import java.io.InputStream;
 import java.lang.ref.WeakReference;

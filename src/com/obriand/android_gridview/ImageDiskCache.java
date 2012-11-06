@@ -1,4 +1,4 @@
-package com.example.android_gridview;
+package com.obriand.android_gridview;
 
 import java.io.File;
 import java.io.FileNotFoundException;
